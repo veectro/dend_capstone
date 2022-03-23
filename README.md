@@ -34,6 +34,7 @@ In the future a spark cluster could be used for processing the data. Because the
 
 ## Project Structure
 
+```
 .
 ├── assets : contains static assets
 ├── dags
