@@ -34,6 +34,34 @@ In the future a spark cluster could be used for processing the data. Because the
 
 ## Project Structure
 
+.
+├── assets : contains static assets
+├── dags
+│   ├── sql
+│   │   └── create_tables.sql : sql to create redshift schema
+│   └── recommendatation_dwh_dag.py : main airflow dag file
+├── dataset : dsample dataset
+├── docker-compose.yaml : docker compose file to run airflow
+├── infra : contains infrastructure files
+├── plugins
+│   ├── helpers
+│   │   ├── __init__.py
+│   │   └── sql_queries.py : sql queries to create tables
+│   ├── __init__.py
+│   └── operators
+│       ├── articles_quality.py : operator for quality check of article table
+│       ├── __init__.py
+│       ├── load_dimension.py : operator to  load dimension table
+│       ├── load_fact.py : operator to load fact table
+│       ├── no_empty_row.py : operator to quality check if fact and dimension table does not have empty row
+│       ├── stage_image_data.py : operator for stage the list of image into redshift
+│       └── stage_redshift.py : operator to stage data into redshift
+│       └── unique_column.py : operator to check if the column is unique
+├── README.md : project readme
+├── requirements.txt : project requirements
+└── sync_secrets.py : script to sync secrets from AWS Secrets Manager to .env file
+```
+
 ---
 
 ## Project Datasets
