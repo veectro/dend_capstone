@@ -1,0 +1,20 @@
+venv/
+.idea/
+.ipynb_checkpoints/
+infra/id_rsa.pub
+spark-local/
+__pycache__/
+dataset/full/
+
+# airflow related
+airflow.db
+airflow-webserver.pid
+standalone_admin_password.txt
+logs/
+
+# Terraforn
+.terraform/
+.terraform.lock.hcl
+
+dwh.cfg
+.env
