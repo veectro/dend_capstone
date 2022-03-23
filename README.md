@@ -170,16 +170,21 @@ Following question could be answered:
   GROUP BY product_type_name
   ORDER BY COUNT(*) DESC;
   ```
+  ![Query result 1](./assets/query_result_1.png)
+
+
 - What is the distribution of user that buy the TShirt and also has active club member?
   ```sql
-  SELECT is_active_club_member_status,
-         COUNT(*)
+  SELECT CASE WHEN is_active_club_member_status THEN 'Active' ELSE 'Not Active' END as has_active_member_status,
+         COUNT(*)<
   FROM fact_transactions ft
          JOIN dim_articles da ON ft.article_id = da.article_id
       JOIN dim_customers dc ON ft.customer_id = dc.customer_id
   WHERE product_type_name = 'T-shirt'
   GROUP BY is_active_club_member_status
   ```
+  ![Query result 2](./assets/query_result_2.png)
+
 
 ---
 
